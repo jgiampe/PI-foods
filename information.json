@@ -1,0 +1,704 @@
+// https://api.spoonacular.com/recipes/32579/information?apiKey=140004f52af340519b34b7b379b1696e
+
+
+{
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": false,
+    "dairyFree": false,
+    "veryHealthy": false,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "lowFodmap": false,
+    "weightWatcherSmartPoints": 18,
+    "gaps": "no",
+    "preparationMinutes": -1,
+    "cookingMinutes": -1,
+    "aggregateLikes": 0,
+    "healthScore": 48,
+    "creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+    "license": "CC BY 3.0",
+    "sourceName": "Foodista",
+    "pricePerServing": 277.37,
+    "extendedIngredients": [
+      {
+        "id": 16054,
+        "aisle": "Canned and Jarred",
+        "image": "broad-beans.jpg",
+        "consistency": "SOLID",
+        "name": "broad beans",
+        "nameClean": "canned fava beans",
+        "original": "1 cup canned broad beans",
+        "originalName": "canned broad beans",
+        "amount": 1.0,
+        "unit": "cup",
+        "meta": [
+          "canned"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "cup",
+            "unitLong": "cup"
+          },
+          "metric": {
+            "amount": 236.588,
+            "unitShort": "ml",
+            "unitLong": "milliliters"
+          }
+        }
+      },
+      {
+        "id": 10011693,
+        "aisle": "Canned and Jarred",
+        "image": "tomatoes-canned.png",
+        "consistency": "SOLID",
+        "name": "canned tomatoes",
+        "nameClean": "canned tomatoes",
+        "original": "1 can of plum tomatoes",
+        "originalName": "plum tomatoes",
+        "amount": 1.0,
+        "unit": "can",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "can",
+            "unitLong": "can"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "can",
+            "unitLong": "can"
+          }
+        }
+      },
+      {
+        "id": 10115121,
+        "aisle": "Canned and Jarred",
+        "image": "canned-tuna.png",
+        "consistency": "SOLID",
+        "name": "tuna",
+        "nameClean": "canned tuna",
+        "original": "1 can tuna",
+        "originalName": "tuna",
+        "amount": 1.0,
+        "unit": "can",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "can",
+            "unitLong": "can"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "can",
+            "unitLong": "can"
+          }
+        }
+      },
+      {
+        "id": 2031,
+        "aisle": "Spices and Seasonings",
+        "image": "chili-powder.jpg",
+        "consistency": "SOLID",
+        "name": "cayenne pepper",
+        "nameClean": "ground cayenne pepper",
+        "original": "1 pinch of cayenne pepper",
+        "originalName": "cayenne pepper",
+        "amount": 1.0,
+        "unit": "pinch",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 2042,
+        "aisle": "Spices and Seasonings",
+        "image": "thyme.jpg",
+        "consistency": "SOLID",
+        "name": "thyme",
+        "nameClean": "dried thyme",
+        "original": "1 pinch of dried thyme",
+        "originalName": "dried thyme",
+        "amount": 1.0,
+        "unit": "pinch",
+        "meta": [
+          "dried"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 1034053,
+        "aisle": "Oil, Vinegar, Salad Dressing",
+        "image": "olive-oil.jpg",
+        "consistency": "LIQUID",
+        "name": "extra virgin olive oil",
+        "nameClean": "extra virgin olive oil",
+        "original": "Extra virgin Olive oil",
+        "originalName": "Extra virgin Olive oil",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 1002011,
+        "aisle": "Spices and Seasonings",
+        "image": "cloves.jpg",
+        "consistency": "SOLID",
+        "name": "garlic",
+        "nameClean": "clove",
+        "original": "2 crushed cloves of garlic",
+        "originalName": "crushed cloves of garlic",
+        "amount": 2.0,
+        "unit": "cloves",
+        "meta": [
+          "crushed"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "cloves",
+            "unitLong": "cloves"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "cloves",
+            "unitLong": "cloves"
+          }
+        }
+      },
+      {
+        "id": 1022027,
+        "aisle": "Spices and Seasonings",
+        "image": "dried-herbs.png",
+        "consistency": "SOLID",
+        "name": "herbs",
+        "nameClean": "italian seasoning",
+        "original": "1 pinch of dried Italian herbs",
+        "originalName": "dried Italian herbs",
+        "amount": 1.0,
+        "unit": "pinch",
+        "meta": [
+          "dried",
+          "italian"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 9195,
+        "aisle": "Canned and Jarred",
+        "image": "olives-mixed.jpg",
+        "consistency": "SOLID",
+        "name": "some olives",
+        "nameClean": "olives",
+        "original": "Some chopped olives",
+        "originalName": "Some chopped olives",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          "chopped"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 11282,
+        "aisle": "Produce",
+        "image": "brown-onion.png",
+        "consistency": "SOLID",
+        "name": "onion",
+        "nameClean": "onion",
+        "original": "1 chopped onion",
+        "originalName": "chopped onion",
+        "amount": 1.0,
+        "unit": "",
+        "meta": [
+          "chopped"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      },
+      {
+        "id": 2027,
+        "aisle": "Produce;Spices and Seasonings",
+        "image": "oregano.jpg",
+        "consistency": "SOLID",
+        "name": "oregano",
+        "nameClean": "oregano",
+        "original": "1 pinch of dried oregano",
+        "originalName": "dried oregano",
+        "amount": 1.0,
+        "unit": "pinch",
+        "meta": [
+          "dried"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 1033,
+        "aisle": "Cheese",
+        "image": "parmesan.jpg",
+        "consistency": "SOLID",
+        "name": "parmesan",
+        "nameClean": "parmesan",
+        "original": "parmesan",
+        "originalName": "parmesan",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 11420420,
+        "aisle": "Pasta and Rice",
+        "image": "spaghetti.jpg",
+        "consistency": "SOLID",
+        "name": "spaghetti",
+        "nameClean": "spaghetti",
+        "original": "Spaghetti (amount is up to you-loads for me )",
+        "originalName": "Spaghetti (amount is up to you-loads for me )",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          "for me ",
+          "(amount is up to you-loads )"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 19335,
+        "aisle": "Baking",
+        "image": "sugar-in-bowl.png",
+        "consistency": "SOLID",
+        "name": "sugar",
+        "nameClean": "sugar",
+        "original": "1 teaspoon of sugar",
+        "originalName": "sugar",
+        "amount": 1.0,
+        "unit": "teaspoon",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "tsp",
+            "unitLong": "teaspoon"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "tsp",
+            "unitLong": "teaspoon"
+          }
+        }
+      },
+      {
+        "id": 1002028,
+        "aisle": "Spices and Seasonings",
+        "image": "paprika.jpg",
+        "consistency": "SOLID",
+        "name": "paprika",
+        "nameClean": "sweet paprika",
+        "original": "1 pinch of sweet paprika",
+        "originalName": "sweet paprika",
+        "amount": 1.0,
+        "unit": "pinch",
+        "meta": [
+          "sweet"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "pinch",
+            "unitLong": "pinch"
+          }
+        }
+      },
+      {
+        "id": 11547,
+        "aisle": "Canned and Jarred",
+        "image": "tomato-paste.jpg",
+        "consistency": "SOLID",
+        "name": "tomato puree",
+        "nameClean": "tomato puree",
+        "original": "1 teaspoon tomato puree",
+        "originalName": "tomato puree",
+        "amount": 1.0,
+        "unit": "teaspoon",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "tsp",
+            "unitLong": "teaspoon"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "tsp",
+            "unitLong": "teaspoon"
+          }
+        }
+      },
+      {
+        "id": 98845,
+        "aisle": "Canned and Jarred",
+        "image": "stock-cube.jpg",
+        "consistency": "SOLID",
+        "name": "vegetable stock cube",
+        "nameClean": "vegetable bouillon cube",
+        "original": "1 vegetable stock cube",
+        "originalName": "vegetable stock cube",
+        "amount": 1.0,
+        "unit": "",
+        "meta": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      }
+    ],
+    "id": 32579,
+    "title": "Tuna Spaghetti With Fava Beans",
+    "readyInMinutes": 20,
+    "servings": 2,
+    "sourceUrl": "http://www.foodista.com/recipe/8ZFSYNTB/tuna-spaghetti-with-fava-beans",
+    "image": "https://spoonacular.com/recipeImages/32579-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "If you want to add more <b>pescatarian</b> recipes to your recipe box, Tuna Spaghetti With Fava Beans might be a recipe you should try. This recipe serves 2. This main course has <b>723 calories</b>, <b>43g of protein</b>, and <b>28g of fat</b> per serving. For <b>$2.77 per serving</b>, this recipe <b>covers 38%</b> of your daily requirements of vitamins and minerals. It is brought to you by Foodista. A mixture of thyme, extra virgin olive oil, onion, and a handful of other ingredients are all it takes to make this recipe so delicious. This recipe is liked by 1 foodies and cooks. From preparation to the plate, this recipe takes roughly <b>20 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 80%</b>. This score is pretty good. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/tuna-spaghetti-with-fava-beans-1226855\">Tuna Spaghetti With Fava Beans</a>, <a href=\"https://spoonacular.com/recipes/french-in-a-flash-spaghetti-with-pistachio-pistou-fava-beans-32432\">French In A Flash: Spaghetti With Pistachio Pistou, Fava Beans</a>, and <a href=\"https://spoonacular.com/recipes/tagine-of-fava-beans-green-beans-and-artichoke-hearts-761957\">Tagine of Fava Beans, Green Beans and Artichoke Hearts</a>.",
+    "cuisines": [
+      
+    ],
+    "dishTypes": [
+      "side dish",
+      "lunch",
+      "main course",
+      "main dish",
+      "dinner"
+    ],
+    "diets": [
+      "pescatarian"
+    ],
+    "occasions": [
+      
+    ],
+    "winePairing": {
+      "pairedWines": [
+        "pinot noir",
+        "merlot",
+        "rose wine"
+      ],
+      "pairingText": "Tuna can be paired with Pinot Noir, Merlot, and rosé Wine. Though fish is often paired with white wine, 'meatier' fish like tuna can absolutely go with red wine. A Rosé will also pair nicely, particularly if your tunan is prepared with ingredients better suited to a white wine. The Calista Coast Range Pinot Noir with a 4.5 out of 5 star rating seems like a good match. It costs about 25 dollars per bottle.",
+      "productMatches": [
+        {
+          "id": 450030,
+          "title": "Calista Coast Range Pinot Noir",
+          "description": "The 2012 Calista Coast Range Pinot Noir is deep ruby red in color with aromatics of dried cherries, rose petal, violet and roasted coffee bean. Rhubarb, cherry and notes of cranberry flow through the palate to a balanced and lengthy finish of mixed dark fruit and black tea.",
+          "price": "$24.99",
+          "imageUrl": "https://spoonacular.com/productImages/450030-312x231.jpg",
+          "averageRating": 0.9,
+          "ratingCount": 12.0,
+          "score": 0.8729729729729729,
+          "link": "https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Fcalista-coast-range-pinot-noir-2012%2F140193"
+        }
+      ]
+    },
+    "instructions": "<ol><li>Fry the onion and add the garlic once the onion is translucent.</li><li>Add the tomatoes and the tomato puree</li><li>Add the herbs and spices.</li><li>Crush the stock cube and add to the sauce.</li><li>Taste for seasoning and add the sugar.</li><li>Cook on medium heat until sauce begins to thicken.</li><li>Add the tuna and broad beans.</li><li>Cook on medium heat for as long as it takes you to boil the spaghetti, this way you're allowing the broad beans to absorb the flavours.</li><li>Boil the spaghetti and add it to the sauce.</li><li>Add the chopped olives and on a very low heat incorporate the sauce into the pasta until every strand is well coated.</li><li>Serve with some Parmesan cheese and enjoy!</li></ol>",
+    "analyzedInstructions": [
+      {
+        "name": "",
+        "steps": [
+          {
+            "number": 1,
+            "step": "Fry the onion and add the garlic once the onion is translucent.",
+            "ingredients": [
+              {
+                "id": 11215,
+                "name": "garlic",
+                "localizedName": "garlic",
+                "image": "garlic.png"
+              },
+              {
+                "id": 11282,
+                "name": "onion",
+                "localizedName": "onion",
+                "image": "brown-onion.png"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 2,
+            "step": "Add the tomatoes and the tomato puree",
+            "ingredients": [
+              {
+                "id": 11547,
+                "name": "tomato puree",
+                "localizedName": "tomato puree",
+                "image": "tomato-paste.jpg"
+              },
+              {
+                "id": 11529,
+                "name": "tomato",
+                "localizedName": "tomato",
+                "image": "tomato.png"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 3,
+            "step": "Add the herbs and spices.Crush the stock cube and add to the sauce.Taste for seasoning and add the sugar.Cook on medium heat until sauce begins to thicken.",
+            "ingredients": [
+              {
+                "id": 1026076,
+                "name": "bouillon cube",
+                "localizedName": "bouillon cube",
+                "image": ""
+              },
+              {
+                "id": 1042027,
+                "name": "seasoning",
+                "localizedName": "seasoning",
+                "image": "seasoning.png"
+              },
+              {
+                "id": 2035,
+                "name": "spices",
+                "localizedName": "spices",
+                "image": "spices.png"
+              },
+              {
+                "id": 1002044,
+                "name": "herbs",
+                "localizedName": "herbs",
+                "image": "mixed-fresh-herbs.jpg"
+              },
+              {
+                "id": 0,
+                "name": "sauce",
+                "localizedName": "sauce",
+                "image": ""
+              },
+              {
+                "id": 19335,
+                "name": "sugar",
+                "localizedName": "sugar",
+                "image": "sugar-in-bowl.png"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 4,
+            "step": "Add the tuna and broad beans.Cook on medium heat for as long as it takes you to boil the spaghetti, this way you're allowing the broad beans to absorb the flavours.Boil the spaghetti and add it to the sauce.",
+            "ingredients": [
+              {
+                "id": 16053,
+                "name": "fava beans",
+                "localizedName": "fava beans",
+                "image": "broad-beans.jpg"
+              },
+              {
+                "id": 11420420,
+                "name": "spaghetti",
+                "localizedName": "spaghetti",
+                "image": "spaghetti.jpg"
+              },
+              {
+                "id": 0,
+                "name": "sauce",
+                "localizedName": "sauce",
+                "image": ""
+              },
+              {
+                "id": 10015121,
+                "name": "tuna",
+                "localizedName": "tuna",
+                "image": "canned-tuna.png"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 5,
+            "step": "Add the chopped olives and on a very low heat incorporate the sauce into the pasta until every strand is well coated.",
+            "ingredients": [
+              {
+                "id": 9195,
+                "name": "olives",
+                "localizedName": "olives",
+                "image": "olives-mixed.jpg"
+              },
+              {
+                "id": 20420,
+                "name": "pasta",
+                "localizedName": "pasta",
+                "image": "fusilli.jpg"
+              },
+              {
+                "id": 0,
+                "name": "sauce",
+                "localizedName": "sauce",
+                "image": ""
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 6,
+            "step": "Serve with some Parmesan cheese and enjoy!",
+            "ingredients": [
+              {
+                "id": 1033,
+                "name": "parmesan",
+                "localizedName": "parmesan",
+                "image": "parmesan.jpg"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          }
+        ]
+      }
+    ],
+    "originalId": null,
+    "spoonacularSourceUrl": "https://spoonacular.com/tuna-spaghetti-with-fava-beans-32579"
+  }

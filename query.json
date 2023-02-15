@@ -1,0 +1,21 @@
+// https://api.spoonacular.com/recipes/complexSearch?query=%22pasta%20with%20tuna%22&number=2&apiKey=140004f52af340519b34b7b379b1696e
+
+{
+    "results": [
+      {
+        "id": 654959,
+        "title": "Pasta With Tuna",
+        "image": "https://spoonacular.com/recipeImages/654959-312x231.jpg",
+        "imageType": "jpg"
+      },
+      {
+        "id": 32579,
+        "title": "Tuna Spaghetti With Fava Beans",
+        "image": "https://spoonacular.com/recipeImages/32579-312x231.jpg",
+        "imageType": "jpg"
+      }
+    ],
+    "offset": 0,
+    "number": 2,
+    "totalResults": 5
+  }
