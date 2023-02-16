@@ -1,14 +1,11 @@
-const {Recipe, Diet, Op} = require('../db.js')
-const axios =  require("axios")
-
-require('dotenv').config();
-const {APIKEY1} = process.env;
+const {createRecipe, getRecipeById, getRecipesByName, getAllRecipes} = require ('../controllers/recipesControllers.js')
 
 
-const getRecipes = async (req, res) => {
+
+
+const getRecipesByNameHandler = async (req, res) => {
     const {name} = req.query;
-    const recipes = [];
-  
+    let recipes;
     /* CUANTOS RESULTADOS QUIERO MANEJAR ?
     
     *SE PUEDEN LIMITAR A 100 (NO SE COLOCA NADA EN NUMBER)
@@ -21,27 +18,10 @@ const getRecipes = async (req, res) => {
     
     */
     try {
-        let response, dbRecipes;
-
         if(!name)
-        {
-            response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?&offset=0&number=1&apiKey=${APIKEY1}`);
-            dbRecipes = await Recipe.findAll();
-        }
+            recipes = await getAllRecipes()
         else
-        {
-            response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${name}&offset=0&number=1&apiKey=${APIKEY1}`);
-            //buscar en DB
-            dbRecipes = await Recipe.findAll({
-                where:{
-                    name:{[Op.like]:`%${name}%`}
-                }
-            })
-        }
-        
-        recipes.push(response.data.results);
-        recipes.push(dbRecipes);
-        recipes.flat();
+            recipes = await getRecipesByName(name)
 
         if (recipes.length)
             res.json(recipes);
@@ -54,57 +34,30 @@ const getRecipes = async (req, res) => {
     }
 }
 
-const getRecipeById = async (req, res) => {
+const getRecipeByIdHandler = async (req, res) => {
     const {idReceta} = req.params;
+
     
     try {
-        if (isNaN(idReceta))  //busco en DB
-        { 
-            let recipe = await Recipe.findByPk(idReceta,
-                {include: {
-                    model:Diet,
-                    attributes:['name'],
-                    through:{attributes:[]}
-                }
-            });
-            if (recipe)
-                return res.json(recipe)
-            
-        }
-        else{
-            let recipe = await axios.get(`https://api.spoonacular.com/recipes/${idReceta}/information?apiKey=${APIKEY1}`);
-            if(!recipe.data.status)
-            return res.json(recipe.data)
-        }
+        const recipe = await getRecipeById(idReceta);
+        if (!recipe)
+            return res.status(404).send('No recipes were found with the given id')
+        res.json(recipe)
     } catch (error) {
         console.log(error);
-        res.status(404).send('No se encontró receta con ese ID')
+        res.status(404).send(error)
     }
 }
   
-const createRecipe = async (req,res) =>{
-    const {name, summary, healthScore, instructions, diets} = req.body;
-    if(!name || !summary)
-        return res.status(404).send('Faltan datos')
-
+const createRecipeHandler = async (req,res) =>{
     try {
-        let newRecipe = await Recipe.create({
-        name, 
-        summary, 
-        healthScore,
-        instructions,
-        });
+        const {name, summary, healthScore, instructions, diets} = req.body;
+        if(!name || !summary)
+            return res.status(404).send('Faltan datos')
+
+        const newRecipe = await createRecipe(name, summary,healthScore,instructions,diets);
         
-        if(diets.length)
-        {
-            diets.forEach(async (name,i) => {
-                const [newDiet]= await Diet.findOrCreate({
-                where: {name}
-            })
-            await newRecipe.addDiet(newDiet)
-        });
-        }
-        res.send('OK')
+        res.json({...newRecipe.toJSON(), diets})
 
     } catch (error) {
         console.log(error)
@@ -112,4 +65,4 @@ const createRecipe = async (req,res) =>{
     }
 }
 
-module.exports = {getRecipes, getRecipeById, createRecipe}
+module.exports = {getRecipesByNameHandler, getRecipeByIdHandler, createRecipeHandler}
