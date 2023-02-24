@@ -5,6 +5,7 @@ const {createRecipe, getRecipeById, getRecipesByName, getAllRecipes} = require (
 
 const getRecipesByNameHandler = async (req, res) => {
     const {name} = req.query;
+    console.log(name)
     let recipes;
     /* CUANTOS RESULTADOS QUIERO MANEJAR ?
     
@@ -51,11 +52,11 @@ const getRecipeByIdHandler = async (req, res) => {
   
 const createRecipeHandler = async (req,res) =>{
     try {
-        const {name, summary, healthScore, instructions, diets} = req.body;
-        if(!name || !summary)
+        const {title, summary, healthScore, instructions, diets} = req.body;
+        if(!title || !summary)
             return res.status(404).send('Faltan datos')
 
-        const newRecipe = await createRecipe(name, summary,healthScore,instructions,diets);
+        const newRecipe = await createRecipe(title, summary,healthScore,instructions,diets);
         
         res.json({...newRecipe.toJSON(), diets})
 

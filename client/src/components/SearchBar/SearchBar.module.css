@@ -1,0 +1,29 @@
+.search{
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.search input{
+    font-size: 1.5em;
+    border-radius: 0.4em;
+    width: 8em;
+}
+
+.search button{
+    background-color:rgba(255, 228, 196, 0);
+    border-color: black;
+    border-radius: 1em;
+    font-weight: bold;
+    border-width: 0.3em;
+}
+
+.lupa{
+    width: 3vh;
+    color: black;
+}
+.lupa:hover{
+    color: white;
+    text-shadow: 0 0 0.8em rgb(53, 255, 53);
+}
+

@@ -1,0 +1,11 @@
+.nav{
+    margin: 0 0 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    column-gap: 3em;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }

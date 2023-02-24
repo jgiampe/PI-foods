@@ -1,0 +1,26 @@
+.card{
+    border-color: black;
+    border-width: 1em;
+    border-radius: 0.5em;
+    border-style: solid;
+}
+
+.card h1{
+    font-size: 1.5em;
+}
+
+.card img{
+    width: 30vw;
+}
+
+.diets{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+}
+
+.vegetarian{
+    background-color: greenyellow;
+    font-weight: bold;
+}
