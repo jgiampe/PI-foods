@@ -13,7 +13,7 @@ const filterDb = (dbRaw, detail) => {
             summary: el.summary,
             healthScore: el.healthScore,
             diets,
-
+            image:el.image
         })
     });
 
@@ -30,12 +30,12 @@ const filterApi = (apiRaw, detail) => {
         const diets = Array.from(new Set(rawDiets.sort()));
 
         return ({
-            diets, 
             id: el.id, 
             title: el.title,
             summary: el.summary, 
-            image: el.image, 
-            healthScore: el.healthScore
+            healthScore: el.healthScore,
+            diets, 
+            image: el.image 
         })
     });
 
@@ -43,15 +43,15 @@ const filterApi = (apiRaw, detail) => {
 }
 
 
-const createRecipe = async (title, summary,healthScore,instructions,diets) =>{
+const createRecipe = async (title, summary, healthScore, image, instructions, diets) =>{
     const newRecipe = await Recipe.create({
         title, 
         summary, 
         healthScore,
         instructions,
+        image
     });
-        
-    if(diets.length)
+    if(diets && diets.length)
     {
         diets.forEach(async (name,i) => {
             const [newDiet]= await Diet.findOrCreate({
@@ -91,11 +91,11 @@ const getRecipeById = async (id) =>{
 const getRecipesByName = async(title) => {
     
     //busco en API
-    let apiRaw = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${title}&addRecipeInformation=true&number=1&apiKey=${APIKEY1}`)).data.results;
+    let apiRaw = (await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${title}&addRecipeInformation=true&number=10&apiKey=${APIKEY1}`)).data.results;
     //busco en DB
     let dbRaw = await Recipe.findAll({
         where:{
-            title:{[Op.like]:`%${title}%`}
+            title:{[Op.iLike]:`%${title}%`}
         },
         include: {
             model:Diet,

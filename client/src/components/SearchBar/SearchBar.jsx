@@ -1,23 +1,30 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './SearchBar.module.css'
 import React from 'react';
-// import lupa from '../../images/lupa.png'
+import lupa from '../../images/lupa.png'
 
-export default function SearchBar({onSearch}) {
-   const [id, setId] = useState();
+export default function SearchBar() {
+   const [name, setName] = useState();
+   const navigate = useNavigate();
 
-   var getId = (event)=>setId(event.target.value);
+   var getName = (event)=>setName(event.target.value);
+
+   const onSearch = () => {
+      if(name.length)
+         navigate(`/home/${name}`)
+   }
 
    const handleKeyPress = (ev) =>{
       if(ev.key === 'Enter')
-         window.alert(id)
+         onSearch();
     }
    
    return (
       <div className={styles.search}>
-         <input type='search' placeholder='Search here' onChange={getId} onKeyDown={handleKeyPress}/>
-         <button onClick={()=>window.alert(id)}>
-            {/* <img className={styles.lupa} src={lupa} alt="lupa" />    */}
+         <input type='search' placeholder='Search here' onChange={getName} onKeyDown={handleKeyPress}/>
+         <button onClick={onSearch}>
+            <img src={lupa} alt="lupa" />   
             Search
          </button> 
       </div>

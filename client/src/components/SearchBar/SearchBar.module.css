@@ -1,7 +1,7 @@
 .search{
     display: flex;
     justify-content: center;
-    gap: 3em;
+    gap: 1em;
 }
 
 .search input{
@@ -11,19 +11,24 @@
 }
 
 .search button{
-    background-color:rgba(255, 228, 196, 0);
-    border-color: black;
+    background-color: rgb(255, 132, 0); 
+    cursor: pointer;
     border-radius: 1em;
+    border-style: none;
     font-weight: bold;
-    border-width: 0.3em;
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
 }
 
-.lupa{
-    width: 3vh;
-    color: black;
+.search img{
+    width: 1.8em;
 }
-.lupa:hover{
-    color: white;
+.search button:hover{
+    border-color: white;
     text-shadow: 0 0 0.8em rgb(53, 255, 53);
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }

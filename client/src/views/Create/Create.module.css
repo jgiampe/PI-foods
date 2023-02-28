@@ -1,0 +1,28 @@
+.create, .create form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    
+}
+
+.create h1{
+    text-align: center;
+}
+
+.create th{
+    display: flex;
+    align-items: flex-start;
+}
+
+.create textarea{
+    width: 30em;
+}
+
+.add{
+    margin-left: .5em;
+}
+
+.send{
+    font-size: 1.5em;
+}

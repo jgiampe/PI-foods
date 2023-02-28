@@ -1,7 +1,10 @@
 .cards{
-    width:min-content;
+    /* width:min-content; */
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap:2em;
+    align-items:flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:5em;
+    justify-content: center;
+    
 }

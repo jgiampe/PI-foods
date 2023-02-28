@@ -1,0 +1,15 @@
+.filters{
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    font-size: 1em;
+}
+
+.filters label{
+    font-weight: bold;
+}
+
+.filters select{
+    font-size: 1em;
+}

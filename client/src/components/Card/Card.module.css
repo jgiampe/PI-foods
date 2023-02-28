@@ -1,26 +1,90 @@
 .card{
     border-color: black;
-    border-width: 1em;
-    border-radius: 0.5em;
+    border-width: .1em;
+    border-radius: 3em;
     border-style: solid;
+    width: 23vw;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color:beige;
+    padding:1em;
 }
 
+.tit{
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
 .card h1{
     font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    
 }
 
 .card img{
-    width: 30vw;
+    width: calc(23vw - 2em);
+    border-radius: 2em;
+}
+
+.healthScore{
+    border-color: black;
+    border-width: .1em;
+    border-radius: 3em;
+    border-style: solid;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-bottom: 0.5em;
+}
+
+.bar_container{
+    padding: 0.01em 16px;
+}
+
+.bar{
+    text-align: center;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+.greenBar{
+    
+    background-color: #4CAF50;
+    color: white;
+}
+
+.yellowBar{
+    background-color: #ffeb3b;
+    color: black;
+}
+
+.orangeBar{
+    background-color: #ff9800;
+    color: white;
+}
+
+.redBar{
+    background-color: #f44336;
+    color: white;
 }
 
 .diets{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 2em;
+    align-items: center;
+    column-gap: 1em;
+    row-gap: 0.4em;
+    flex-wrap: wrap;
+    /* height: 5em; */
 }
 
-.vegetarian{
-    background-color: greenyellow;
-    font-weight: bold;
+.diet{
+    height: 1.4em;
+    border-radius: 0.3em;
+    padding: 0 0.5em 0 0.5em;
 }

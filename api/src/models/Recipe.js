@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
+      unique:true
     },
     title: {
       type: DataTypes.STRING,
@@ -19,15 +20,18 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     healthScore: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
       validate: {
         min: 0,
-        max: 5,
+        max: 100,
       },
     },
     instructions:{
       type: DataTypes.TEXT,
     },
+    image:{
+      type: DataTypes.TEXT
+    }
   },
   {timestamps:false});
 };
