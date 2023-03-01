@@ -26,6 +26,11 @@
 .send{
     font-size: 1.5em;
 }
+
+.send h3{
+    margin: 0.2em;
+}
+
 .uploaded{
     display: flex;
     flex-direction: row;
@@ -57,7 +62,7 @@
 }
 
 .diets{
-    width: 50vw;
+    width: 25vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

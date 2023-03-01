@@ -164,7 +164,7 @@ export default function Create(){
                             type='number'
                             min={0}
                             max={100} 
-                            onChange={handleInputChange}/></td>
+                            onChange={handleInputChange}/> (Default is 0)</td>
                     </tr>
 
                     <tr>
@@ -233,7 +233,7 @@ export default function Create(){
                 </table>
                 <br/>
                 <div>
-                    <button className={`${styles.send}`} type="submit">SEND</button>
+                    <button className={`${styles.send}`} type="submit"><h3>SEND</h3></button>
                 </div>
             </form>
 
