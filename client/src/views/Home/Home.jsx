@@ -17,6 +17,13 @@ export default function Home(){
     const [init, setInit] = useState(0)
     const {name} = useParams()
     const dispatch = useDispatch();
+    const [filters, setFilters] = useState({
+        sortBy: 'title', 
+        direction: 'Ascendent', 
+        filter: 'ALL',
+        changed:''
+    }) ;
+    const found = useSelector(state=>state.allRecipes.length)
     
     useEffect(()=>{
         setInit(1);
@@ -54,9 +61,9 @@ export default function Home(){
 
     return (
         <div className={styles.home}>
-            {!init && !recipes.length && <Sorry message={'No recipes found'}/>}
+            {!init && !found && <Sorry message={'No recipes found'}/>}
             {loader?<div className={styles.loader}/>:<div className={styles.home}>
-            {recipes.length ? <Filters/> : null}
+            {found ? <Filters filters={filters} setFilters={setFilters}/> : null}
             <Cards 
                 recipes={recipes} 
                 index={index}

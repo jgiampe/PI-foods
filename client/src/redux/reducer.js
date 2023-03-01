@@ -22,9 +22,20 @@ const rootReducer = (state= initialState, {type, payload})=>{
         case GET_DIETS:
             return {...state, diets:payload}
                 
+        case FILTER:
+            let {filter} = payload;
+            if(filter==='ALL')
+                filtered = [...state.allRecipes]
+            else
+                filtered = [...state.allRecipes].filter(el=>el.diets.includes(filter.toLowerCase()));
+            
+            // return {...state, filteredRecipes: filtered}   
         case ORDER:
             let {sortBy, direction} = payload
-            filtered = [...state.allRecipes].sort((a,b)=>{
+            if(!filter)
+                filtered = [...state.allRecipes]
+            
+            filtered = filtered.sort((a,b)=>{
                 if(direction==='Ascendent')
                     if(a[sortBy]>b[sortBy]) return 1
                     else    return -1
@@ -36,13 +47,6 @@ const rootReducer = (state= initialState, {type, payload})=>{
             })
             return {...state, filteredRecipes: filtered}
                     
-        case FILTER:
-            if(payload==='ALL')
-                filtered = [...state.allRecipes]
-            else
-                filtered = [...state.allRecipes].filter(el=>el.diets.includes(payload.toLowerCase()));
-            
-            return {...state, filteredRecipes: filtered}   
                         
         case CREATE_RECIPE:
         default:

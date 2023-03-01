@@ -77,7 +77,7 @@ export const getDiets = () => {
     }
 }
 
-export const order = (specs) => ({type: ORDER, payload: specs})
+export const order = (prop) => ({type: ORDER, payload: prop})
 
 export const filter = (prop) => ({type: FILTER, payload: prop})
 

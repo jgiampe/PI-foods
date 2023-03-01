@@ -3,17 +3,17 @@ import styles from './Filters.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import { filter, getDiets, order } from "../../redux/actions.js";
 
-export default function Filters(){
+export default function Filters({filters, setFilters}){
 
     const dispatch = useDispatch();
     const diets = useSelector(state=>state.diets)
-    const [filters, setFilters] = useState(
-        {
-            sortBy: 'title', 
-            direction: 'Ascendent', 
-            filter: 'ALL',
-            changed:''
-        }) ;
+    // const [filters, setFilters] = useState(
+    //     {
+    //         sortBy: 'title', 
+    //         direction: 'Ascendent', 
+    //         filter: 'ALL',
+    //         changed:''
+    //     }) ;
 
     useEffect(() => {
         dispatch(getDiets())
@@ -22,7 +22,7 @@ export default function Filters(){
 
     useEffect(() => {
         if(filters.changed === 'filter')
-            dispatch(filter(filters.filter))
+            dispatch(filter(filters))
         else
             dispatch(order({sortBy: filters.sortBy, direction: filters.direction}))        
     },[filters])
