@@ -27,11 +27,16 @@ export const getRecipesByName = (name) => {
 
 export const getRecipeById = (id) => {
     return async (dispatch) => {
+        console.log(id)
         try {
-            const recipes = (await axios.get(`http://localhost:3001/recipes/${id}`)).data;
-            return dispatch ({type: GET_RECIPE_BY_ID, payload: recipes}) 
+            console.log('no hay error')
+            const recipe = (await axios.get(`http://localhost:3001/recipes/${id}`)).data;
+            console.log(recipe.diets)
+            return dispatch ({type: GET_RECIPE_BY_ID, payload: recipe}) 
         } catch (error) {
+            console.log('Hay un error')
             console.log(error)
+            return dispatch ({type: GET_RECIPE_BY_ID, payload: {error:'The recipe does not exist'}})
         }   
     }
 }
@@ -42,8 +47,10 @@ export const createRecipe = (data) => {
             let result = await axios.post(`http://localhost:3001/recipes`,data)
             if(typeof result === 'string')
                 window.alert('An error ocurred')
-            else    
+            else
+            {    
                 window.alert('Recipe created successfully')
+            }
             return dispatch ({type: CREATE_RECIPE}) 
         } catch (error) {
             // console.log(error)

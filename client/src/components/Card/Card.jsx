@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import noImage from '../../images/noImage.png'
 import { useSelector } from 'react-redux'
+import ScoreBar from '../ScoreBar/ScoreBar.jsx'
 
 export default function Card ({id, title, image, summary, healthScore, diets}){
 
@@ -43,14 +44,7 @@ export default function Card ({id, title, image, summary, healthScore, diets}){
             />
             <div className={styles.healthScore}>
                 <div>Health Score</div>
-                <div className={styles.bar_container}>
-                    <div 
-                    className={`${styles.bar} ${healthScore>75?styles.greenBar:healthScore>50?styles.yellowBar:healthScore>25?styles.orangeBar:styles.redBar}`} 
-                    style={{width:`${healthScore<15?15:healthScore}%`}}
-                    >
-                        {healthScore}%
-                    </div>
-                </div>
+                <ScoreBar healthScore={healthScore}/>
             </div>
             <div className={styles.diets}>
                 {diets.map((el,i)=>

@@ -1,0 +1,70 @@
+.detail{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.data{
+    width: 70vw;
+}
+
+.score{
+    width: 30vw;
+    display: inline-block;
+}
+
+.detail img{
+    width: 40vw;
+}
+
+.summary div{
+    text-align: left;
+}
+
+.healthScore{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.diets{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+.dietList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.diet{
+    height: 1.4em;
+    border-radius: 0.3em;
+    padding: 0 0.5em 0 0.5em;
+}
+
+
+
+.instructions div{
+    text-align: left;
+}
+
+.test{background-color:#f707ff; color:#000;}
+.test{background-color:#f0e68c; color:#000}
+.test{background-color:#cddc39; color:#000}
+.test{background-color:#00ffff; color:#000;}
+.test{background-color:#2196F3; color:#FFF;}
+.test{background-color:#4CAF50; color:#FFF;}
+.test{background-color:#00bcd4; color:#000;}
+.test{background-color:#9c27b0; color:#FFF;}
+.test{background-color:#f44336; color:#FFF;}
+.test{background-color:#fdf5e6; color:#000;}
+.test{background-color:#e91e63; color:#FFF;}
+.test{background-color:#795548; color:#FFF;}
+.test{background-color:#9e9e9e; color:#000;} 

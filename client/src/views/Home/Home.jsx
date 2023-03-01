@@ -7,18 +7,19 @@ import { getRecipesByName, order } from '../../redux/actions.js'
 import Pagination from '../../components/Pagination/Pagination.jsx'
 import Filters from '../../components/Filters/Filters.jsx'
 import { useParams } from 'react-router-dom'
-export default function Home(){
-    
+import Sorry from '../../components/Sorry/Sorry.jsx'
+
+
+export default function Home(){    
     const recipes = useSelector(state=>state.filteredRecipes)
-    const dispatch = useDispatch();
     const [index, setIndex] = useState(0)
     const [loader, setLoader] = useState(true)
-    const [init, setInit] = useState(true)
-    
+    const [init, setInit] = useState(0)
     const {name} = useParams()
+    const dispatch = useDispatch();
     
     useEffect(()=>{
-        setInit(true);
+        setInit(1);
         setLoader(true);
         if(name)
             dispatch(getRecipesByName(name));    
@@ -27,14 +28,23 @@ export default function Home(){
     },[name])
     
     useEffect(()=>{
-        if(loader)
-            setLoader(false)
-        if(recipes.length && init)
+        if(init===1)
         {
-            setInit(false);
-            dispatch(order({sortBy: 'title', direction: 'Ascendent'}));
+            setLoader(false)
+            setInit(2)
         }
     },[recipes])
+    
+    useEffect(() => {
+        if(init===2)
+            {
+                if(recipes.length)
+                    dispatch(order({sortBy: 'title', direction: 'Ascendent'}));
+                setInit(0)
+            }
+    },[init])
+
+    useEffect(()=>{console.log(init)})
 
     const pageChange = (i) => {
         setIndex(i-1);
@@ -44,8 +54,9 @@ export default function Home(){
 
     return (
         <div className={styles.home}>
+            {!init && !recipes.length && <Sorry message={'No recipes found'}/>}
             {loader?<div className={styles.loader}/>:<div className={styles.home}>
-            <Filters/>
+            {recipes.length ? <Filters/> : null}
             <Cards 
                 recipes={recipes} 
                 index={index}

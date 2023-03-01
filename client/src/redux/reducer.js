@@ -4,7 +4,8 @@ import { GET_RECIPES_BY_NAME, CREATE_RECIPE, GET_DIETS, GET_RECIPE_BY_ID, ORDER,
 const initialState = {
     allRecipes: [],
     filteredRecipes:[],
-    diets: []
+    diets: [],
+    idRecipe:{}
   }
 
 const rootReducer = (state= initialState, {type, payload})=>{
@@ -12,11 +13,10 @@ const rootReducer = (state= initialState, {type, payload})=>{
     let filtered;
     switch (type) {
         case GET_RECIPES_BY_NAME:
-        case GET_RECIPE_BY_ID:
             return {...state, allRecipes:payload, filteredRecipes:payload}
-            
-            
-            
+        
+        case GET_RECIPE_BY_ID:
+            return {...state, idRecipe:payload}
             
             
         case GET_DIETS:

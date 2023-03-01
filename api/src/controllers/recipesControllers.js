@@ -4,39 +4,91 @@ const axios =  require("axios");
 require('dotenv').config();
 const {APIKEY1} = process.env;
 
+const apiDiets = (rawDiets) =>{
+    const raw = [...rawDiets.diets];
+    if(rawDiets.vegetarian) raw.push('vegetarian')
+    if(rawDiets.vegan)      raw.push('vegan')
+    if(rawDiets.glutenFree) raw.push('gluten free')
+    if(rawDiets.dairyFree)  raw.push('dairy free')
+    const diets = Array.from(new Set(raw.sort()));
+    
+    return diets;
+}
+
 const filterDb = (dbRaw, detail) => {
+    if(detail)
+    {
+        
+
+        dbRaw.diets = dbRaw.diets.map(p=>p.name)
+
+        return dbRaw
+    }
+        
     const dbFiltered = dbRaw.map(el => {
         const diets = el.diets.map(p=>p.name)
-        return({
+
+        const recipe = {
             id:el.id,
             title: el.title,
-            summary: el.summary,
             healthScore: el.healthScore,
             diets,
             image:el.image
-        })
+        }
+
+
+        return recipe
     });
+    
+    if(detail)
+        return dbFiltered[0]
 
     return dbFiltered
 }
 
 const filterApi = (apiRaw, detail) => {
-    const apiFiltered = apiRaw.map(el => {
-        const rawDiets = [...el.diets];
-        if(el.vegetarian) rawDiets.push('vegetarian')
-        if(el.vegan)      rawDiets.push('vegan')
-        if(el.glutenFree) rawDiets.push('gluten free')
-        
-        const diets = Array.from(new Set(rawDiets.sort()));
+    if(detail)
+    {
+        const diets = apiDiets({
+            vegetarian: apiRaw.vegetarian,
+            vegan:      apiRaw.vegan,
+            glutenFree: apiRaw.glutenFree,
+            dairyFree:  apiRaw.dairyFree,
+            diets:      apiRaw.diets
+        });
 
-        return ({
+        let plainText = apiRaw.summary.replace(/<\/?[^>]+(>|$)/g, "");
+
+        return {
+            id: apiRaw.id, 
+            title: apiRaw.title,
+            summary: plainText, 
+            healthScore: apiRaw.healthScore,
+            diets, 
+            image: apiRaw.image,
+            instructions: apiRaw.instructions
+        }
+    }
+    
+    const apiFiltered = apiRaw.map(el => {
+        const diets = apiDiets({
+            vegetarian: el.vegetarian,
+            vegan:      el.vegan,
+            glutenFree: el.glutenFree,
+            dairyFree:  el.dairyFree,
+            diets:      el.diets
+        });
+
+        const recipe = {
             id: el.id, 
             title: el.title,
             summary: el.summary, 
             healthScore: el.healthScore,
             diets, 
-            image: el.image 
-        })
+            image: el.image, 
+        }
+        
+        return recipe
     });
 
     return apiFiltered
@@ -55,7 +107,7 @@ const createRecipe = async (title, summary, healthScore, image, instructions, di
     {
         diets.forEach(async (name,i) => {
             const [newDiet]= await Diet.findOrCreate({
-            where: {name}
+            where: {name:name.toLowerCase()}
         })
         await newRecipe.addDiet(newDiet)
     });
@@ -65,27 +117,33 @@ const createRecipe = async (title, summary, healthScore, image, instructions, di
 }
 
 const getRecipeById = async (id) =>{
-    let recipe;
+    let recipeRaw, recipeFiltered;
     try{
         if (isNaN(id))  //busco en DB
         { 
-            recipe = await Recipe.findByPk(id,
+            recipeRaw = await Recipe.findByPk(id,
                 {include: {
                     model:Diet,
                     attributes:['name'],        //traigo solo la columna name de Diets
                     through:{attributes:[]}     //evito la tabla compartida
                 }
             });
+            console.log(recipeRaw.toJSON())
+            recipeFiltered = filterDb(recipeRaw.toJSON(),true);
         }
         else      //Busco en API
-            recipe = (await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${APIKEY1}`)).data;
+        {
+            recipeRaw = (await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${APIKEY1}`)).data;
+            recipeFiltered = filterApi(recipeRaw,true);
+        }
         
     }
     catch(err){
+        console.log(err)
         recipe = null
     }
 
-    return recipe
+    return recipeFiltered
 }
 
 const getRecipesByName = async(title) => {

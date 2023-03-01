@@ -1,0 +1,30 @@
+.bar_container{
+    padding: 0.01em 16px;
+}
+
+.bar{
+    text-align: center;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+.greenBar{
+    
+    background-color: #4CAF50;
+    color: white;
+}
+
+.yellowBar{
+    background-color: #ffeb3b;
+    color: black;
+}
+
+.orangeBar{
+    background-color: #ff9800;
+    color: white;
+}
+
+.redBar{
+    background-color: #f44336;
+    color: white;
+}

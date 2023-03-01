@@ -5,7 +5,7 @@ import React from 'react';
 import lupa from '../../images/lupa.png'
 
 export default function SearchBar() {
-   const [name, setName] = useState();
+   const [name, setName] = useState('');
    const navigate = useNavigate();
 
    var getName = (event)=>setName(event.target.value);

@@ -6,17 +6,7 @@ const {createRecipe, getRecipeById, getRecipesByName, getAllRecipes} = require (
 const getRecipesByNameHandler = async (req, res) => {
     const {name} = req.query;
     let recipes;
-    /* CUANTOS RESULTADOS QUIERO MANEJAR ?
     
-    *SE PUEDEN LIMITAR A 100 (NO SE COLOCA NADA EN NUMBER)
-    *SE PUEDEN BUSCAR TODOS: ITERAR COLOCANDO OFFSET X100, 
-        AUMENTANDO OFFSET HASTA QUE totalResults sea 0   
-        
-    *Filtrar cantidad de resultados por página, luego ir buscando
-      segun esa cantidad y corriendo el offset hasta que 
-      no hayan totalResults
-    
-    */
     try {
         if(!name)
             recipes = await getAllRecipes()
@@ -42,10 +32,11 @@ const getRecipeByIdHandler = async (req, res) => {
         const recipe = await getRecipeById(idReceta);
         if (!recipe)
             return res.status(404).send('No recipes were found with the given id')
+        // console.log(recipe)
         res.json(recipe)
     } catch (error) {
         console.log(error);
-        res.status(404).send(error)
+        res.status(400).send(error)
     }
 }
   
