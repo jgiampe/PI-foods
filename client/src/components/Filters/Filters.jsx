@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from './Filters.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import { filter, getDiets, order } from "../../redux/actions.js";

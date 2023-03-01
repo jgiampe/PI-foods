@@ -1,11 +1,12 @@
-import { GET_RECIPES_BY_NAME, CREATE_RECIPE, GET_DIETS, GET_RECIPE_BY_ID, ORDER, FILTER} from "./actions.js";
+import { GET_RECIPES_BY_NAME, CREATE_RECIPE, GET_DIETS, GET_RECIPE_BY_ID, ORDER, FILTER, AUTHENTICATE, LOGOUT} from "./actions.js";
 
 
 const initialState = {
     allRecipes: [],
     filteredRecipes:[],
     diets: [],
-    idRecipe:{}
+    idRecipe:{},
+    isAdmin:false
   }
 
 const rootReducer = (state= initialState, {type, payload})=>{
@@ -30,6 +31,7 @@ const rootReducer = (state= initialState, {type, payload})=>{
                 filtered = [...state.allRecipes].filter(el=>el.diets.includes(filter.toLowerCase()));
             
             // return {...state, filteredRecipes: filtered}   
+            // eslint-disable-next-line
         case ORDER:
             let {sortBy, direction} = payload
             if(!filter)
@@ -47,7 +49,21 @@ const rootReducer = (state= initialState, {type, payload})=>{
             })
             return {...state, filteredRecipes: filtered}
                     
-                        
+
+        case AUTHENTICATE:
+            let {user, pass} = payload;
+
+            if(!(user==='admin' && pass==='admin'))
+            {    
+                window.alert('Wrong authentication')
+                return {...state}
+            }
+            
+            return {...state, isAdmin: true}
+
+        case LOGOUT:
+            return {...state, isAdmin: false}
+                
         case CREATE_RECIPE:
         default:
             return {...state};

@@ -12,7 +12,10 @@ export default function SearchBar() {
 
    const onSearch = () => {
       if(name.length)
-         navigate(`/home/${name}`)
+         {
+            setName('')
+            navigate(`/home/${name}`)
+         }
    }
 
    const handleKeyPress = (ev) =>{
@@ -22,7 +25,7 @@ export default function SearchBar() {
    
    return (
       <div className={styles.search}>
-         <input type='search' placeholder='Search here' onChange={getName} onKeyDown={handleKeyPress}/>
+         <input type='search' value={name} placeholder='Search here' onChange={getName} onKeyDown={handleKeyPress}/>
          <button onClick={onSearch}>
             <img src={lupa} alt="lupa" />   
             Search

@@ -6,6 +6,8 @@ export const CREATE_RECIPE = 'CREATE_RECIPE';
 export const GET_DIETS = 'GET_DIETS';
 export const FILTER = 'FILTER';
 export const ORDER = 'ORDER';
+export const AUTHENTICATE = 'AUTHENTICATE';
+export const LOGOUT = 'LOGOUT';
 
 
 export const getRecipesByName = (name) => {
@@ -81,3 +83,6 @@ export const order = (prop) => ({type: ORDER, payload: prop})
 
 export const filter = (prop) => ({type: FILTER, payload: prop})
 
+export const authenticate = (data) => ({type: AUTHENTICATE, payload: data})
+
+export const logout = () => ({type: LOGOUT})

@@ -1,4 +1,4 @@
-.create, .create form{
+.create, .create form, .container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,6 +59,7 @@
     border-width: 0.1em;
     outline: none;
     width: 2em;
+    cursor: pointer;
 }
 
 .diets{
@@ -68,4 +69,41 @@
     flex-wrap: wrap;
     column-gap: 0.5em;
     row-gap: 0.2em;
+}
+
+.login{
+    position: absolute;
+    top: 30vh;
+}
+
+.submit{
+    border-radius: 1em;
+    padding: .5em;
+}
+
+.login h1{
+    margin-block-end: 0;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 3em;
+    margin: 0.2em 0.4em 0.4em 0;
+}
+
+.title button{
+    font-size: 1em;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    border-radius: 0.3em;
+    border-width: 0.1em;
+    outline: none;
+    cursor: pointer;
+}
+
+.create button{
+    cursor: pointer;
 }

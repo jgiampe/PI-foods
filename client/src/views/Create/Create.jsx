@@ -2,7 +2,7 @@ import styles from './Create.module.css'
 import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getDiets, createRecipe } from '../../redux/actions.js';
+import { getDiets, createRecipe, authenticate,logout } from '../../redux/actions.js';
 
 export default function Create(){
     
@@ -12,6 +12,8 @@ export default function Create(){
     const [init, setInit] = useState(0);
     const dispatch = useDispatch();
     const [isChecked, setIsChecked] = useState([...Array(12).fill(false)]);
+    const isAdmin = useSelector(state=>state.isAdmin)
+    const [authentication, setAuthentication] = useState({user:'', pass:''})
 
     useEffect(()=>{
         dispatch(getDiets());
@@ -127,116 +129,178 @@ export default function Create(){
         setData({...data, image:''})
     }
 
+
+    const loginChange = (ev) => {
+        const prop = ev.target.name;
+        let value = ev.target.value;
+
+
+        setAuthentication({
+            ...authentication,
+            [prop]: value
+        })
+    }
+
+    const login = () => {
+        if(!authentication.user || !authentication.pass)
+            window.alert('There are missing fields')
+        
+        else
+        {
+            setAuthentication({user:'', pass:''})
+            dispatch(authenticate(authentication))
+        }
+    }
+
     return (
         <div className={styles.create}>
-            <h1>Create New Recipe</h1>
+            {
+            isAdmin?
+            <div className={styles.container}>
+                <span className={styles.title}>
+                    <div><h1>Create New Recipe</h1></div>
+                    <div >
+                        <button onClick={()=>{dispatch(logout())}}>LOGOUT</button>
+                    </div>
+                </span>
 
-            <form onSubmit={handleSubmit}>
-                <table>
-                    <tr>
-                        <th><label>Title*</label></th>
-                        <td><input 
-                            name="title" 
-                            value={data.title} 
-                            placeholder="Insert a title" 
-                            type="text"
-                            onChange={handleInputChange} 
-                            maxLength={250}/></td>
-                    </tr>
+                <form onSubmit={handleSubmit}>
+                    <table>
+                        <tr>
+                            <th><label>Title*</label></th>
+                            <td><input 
+                                name="title" 
+                                value={data.title} 
+                                placeholder="Insert a title" 
+                                type="text"
+                                onChange={handleInputChange} 
+                                maxLength={250}/></td>
+                        </tr>
 
-                    <tr>
-                        <th><label>Summary*</label></th>
-                        <td><textarea 
-                            name="summary" 
-                            value={data.summary} 
-                            placeholder="Write a summary of the recipe" 
-                            type='' 
-                            onChange={handleInputChange}
-                            /></td>
-                    </tr>
+                        <tr>
+                            <th><label>Summary*</label></th>
+                            <td><textarea 
+                                name="summary" 
+                                value={data.summary} 
+                                placeholder="Write a summary of the recipe" 
+                                type='' 
+                                onChange={handleInputChange}
+                                /></td>
+                        </tr>
 
-                    <tr>
-                        <th><label>Health Score</label></th>
-                        <td><input 
-                            name="healthScore" 
-                            value={data.healthScore} 
-                            placeholder='0-100'
-                            type='number'
-                            min={0}
-                            max={100} 
-                            onChange={handleInputChange}/> (Default is 0)</td>
-                    </tr>
+                        <tr>
+                            <th><label>Health Score</label></th>
+                            <td><input 
+                                name="healthScore" 
+                                value={data.healthScore} 
+                                placeholder='0-100'
+                                type='number'
+                                min={0}
+                                max={100} 
+                                onChange={handleInputChange}/> (Default is 0)</td>
+                        </tr>
 
-                    <tr>
-                        <th><label>Instructions</label></th>
-                        <td><textarea 
-                            name="instructions" 
-                            value={data.instructions} 
-                            placeholder="Write the instructions for the recipe" 
-                            type="text"  
-                            onChange={handleInputChange}/></td>
-                    </tr>
+                        <tr>
+                            <th><label>Instructions</label></th>
+                            <td><textarea 
+                                name="instructions" 
+                                value={data.instructions} 
+                                placeholder="Write the instructions for the recipe" 
+                                type="text"  
+                                onChange={handleInputChange}/></td>
+                        </tr>
 
-                    <tr>
-                        <th><label>Image</label></th>
-                        <td>{!data.image?
-                            <input 
-                            type='file'
-                            accept='image/*'
-                            name="image" 
-                            placeholder="Select an image" 
-                            className={styles.imageInput}
-                            onChange={handleInputChange}/>
-                             
-                            :<div className={styles.uploaded}>
-                                <img className={styles.image} src={data.image} alt='uploaded_Image'/>
-                                <div className={styles.close}>
-                                    <button onClick={onClose}>X</button>
+                        <tr>
+                            <th><label>Image</label></th>
+                            <td>{!data.image?
+                                <input 
+                                type='file'
+                                accept='image/*'
+                                name="image" 
+                                placeholder="Select an image" 
+                                className={styles.imageInput}
+                                onChange={handleInputChange}/>
+                                
+                                :<div className={styles.uploaded}>
+                                    <img className={styles.image} src={data.image} alt='uploaded_Image'/>
+                                    <div className={styles.close}>
+                                        <button onClick={onClose}>X</button>
+                                    </div>
                                 </div>
-                            </div>
-                            }
+                                }
+                                </td>
+                        </tr>
+
+                        <tr>
+                            <th><label>Diets</label></th>
+                            <td><div>
+                                <div className={styles.diets}>
+                                {formDiets.diets.map((el,i)=>
+                                <div key={`a${i}`}>
+                                    <input 
+                                        type="checkbox" 
+                                        id={el} 
+                                        name={i} 
+                                        value={el} 
+                                        key={`b${i}`}
+                                        checked={isChecked[i]}
+                                        onChange={handleDiets}/>
+                                    <label key={`c${i}`} for={el}>{el}</label>
+                                    <br key={`d${i}`}/>
+                                </div>
+                                )}
+                                </div>
+                                    <input 
+                                        name="newDiet" 
+                                        value={formDiets.newDiet} 
+                                        placeholder="Insert new diet" 
+                                        type="text"
+                                        onChange={handleInputChange} 
+                                        maxLength={250}
+                                        onKeyDown={isEnter}/>
+                                    <button className={`${styles.add}`} type='button' onClick={addDiet}>ADD</button>
+                                </div>
                             </td>
-                    </tr>
+                        </tr>
 
-                    <tr>
-                        <th><label>Diets</label></th>
-                        <td><div>
-                            <div className={styles.diets}>
-                            {formDiets.diets.map((el,i)=>
-                            <div key={`a${i}`}>
-                                <input 
-                                    type="checkbox" 
-                                    id={el} 
-                                    name={i} 
-                                    value={el} 
-                                    key={`b${i}`}
-                                    checked={isChecked[i]}
-                                    onChange={handleDiets}/>
-                                <label key={`c${i}`} for={el}>{el}</label>
-                                <br key={`d${i}`}/>
-                            </div>
-                            )}
-                            </div>
-                                <input 
-                                    name="newDiet" 
-                                    value={formDiets.newDiet} 
-                                    placeholder="Insert new diet" 
-                                    type="text"
-                                    onChange={handleInputChange} 
-                                    maxLength={250}
-                                    onKeyDown={isEnter}/>
-                                <button className={`${styles.add}`} type='button' onClick={addDiet}>ADD</button>
-                            </div>
-                        </td>
-                    </tr>
+                    </table>
+                    <br/>
+                    <div>
+                        <button className={`${styles.send}`} type="submit"><h3>SEND</h3></button>
+                    </div>
+                </form>
+            </div>
 
-                </table>
+            :<form className={styles.login} onSubmit={login}>
+                <h1>Only authorized access</h1>
+                <div>(admin : admin)</div>
+                <div>
+                    <label>Username</label>{'    '}
+                    <input 
+                        name="user" 
+                        value={authentication.user} 
+                        placeholder="Insert user" 
+                        type="text"
+                        onChange={loginChange} />
+                    
+                </div>
+
+                <div>
+                    <label>Password</label>{'    '}
+                    <input 
+                        name="pass" 
+                        value={authentication.pass} 
+                        placeholder="Insert password" 
+                        type="password" 
+                        onChange={loginChange}/>
+                    
+                </div>
                 <br/>
                 <div>
-                    <button className={`${styles.send}`} type="submit"><h3>SEND</h3></button>
+                    <button className={styles.submit} type="submit">LOGIN</button>
                 </div>
             </form>
-
+            }
         </div>
     )
 }
